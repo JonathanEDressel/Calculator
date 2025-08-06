@@ -48,8 +48,13 @@ export default function App() {
     }
   
     function buildEquation(data) {
-      setEquation((prev) => [...prev, data]);
-      setResult(equation.join('') + data)
+      if(data === 'flip') {
+        
+      }
+      else {
+        setEquation((prev) => [...prev, data]);
+        setResult(equation.join('') + data);
+      }
     }
 
   return (
@@ -84,8 +89,8 @@ export default function App() {
             <Button key={2} mode='outlined' labelStyle={[styles.buttonLbl]} style={styles.button} onPress={() => buildEquation(2)}>2</Button>
             <Button key={3} mode='outlined' labelStyle={[styles.buttonLbl]} style={styles.button} onPress={() => buildEquation(3)}>3</Button>
             <Button key={'+'} mode='outlined' labelStyle={[styles.buttonLbl]} style={[styles.button, styles.setButton]} onPress={() => buildEquation('+')}>+</Button>
-
-            <Button key={'+/-'} mode='outlined' labelStyle={[styles.buttonLbl]} style={[styles.button]} onPress={() => buildEquation('+/-')}>+/-</Button>
+            {/* not working yet... */}
+            {/* <Button key={'+/-'} mode='outlined' labelStyle={[styles.buttonLbl]} style={[styles.button]} onPress={() => buildEquation('flip')}>+/-</Button> */}
             <Button key={0} mode='outlined' labelStyle={[styles.buttonLbl]} style={styles.button} onPress={() => buildEquation(0)}>0</Button>
             <Button key={'.'} mode='outlined' labelStyle={[styles.buttonLbl]} style={[styles.button]} onPress={() => buildEquation('.')}>.</Button>
             <Button key={'='} mode='outlined' labelStyle={[styles.buttonLbl]} style={[styles.button, styles.setButton]} onPress={() => calculate()}>=</Button>
